@@ -1,0 +1,99 @@
+.navbar {
+    margin-bottom: 0px;
+    border-radius: 0px;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #03a6c3, #ffc371);
+    padding: 50px;
+}
+
+.logout-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    position: relative;
+}
+
+h1 {
+    font-size: 3em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.btn {
+    text-decoration: none;
+    background: #ff5f6d;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #ffc371;
+    cursor: pointer;
+}
+
+.confetti {
+    position: absolute;
+    top: -45%;
+    left: 0%;
+    width: 100%;
+    height: 50%;
+    pointer-events: none;
+    overflow:visible;
+    z-index: 5;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    opacity: 0;
+    animation: confetti-animation 5s linear infinite;
+}
+
+@keyframes confetti-animation {
+    0% {
+        transform: translateY(0) rotate(5dag); 
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(50vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@keyframes confetti-color {
+    0% { background: #049924; }
+    50% { background: #02f2ff; }
+    100% { background: #2900f9; }
+}
+
+/* JavaScript ile eklenen konfetiler için */
+.confetti {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+

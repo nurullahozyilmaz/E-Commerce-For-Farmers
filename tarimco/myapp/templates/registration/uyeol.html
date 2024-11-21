@@ -1,0 +1,129 @@
+{% extends 'users/base.html' %} 
+{% block title %}Kayıt Ol{% endblock %} 
+{% block content %} 
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/formlar.css' %}" />
+
+<div class="uyeol-container">
+  <form class="well form-horizontal" method="post" enctype="multipart/form-data" action="{% url 'register' %}" id="contact_form">
+    {% csrf_token %}
+    <fieldset>
+      <legend><center><h2><b>Üye Ol</b></h2></center></legend>
+      <br />
+      
+      <div class="form-group">
+        <label class="col-md-4 control-label">Ad</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            {{ form.first_name.errors }} 
+            {{ form.first_name}}
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Soyad</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            {{ form.last_name.errors }} 
+            {{ form.last_name}}
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Kullanıcı Adı</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            {{ form.username.errors }} 
+            {{ form.username}}
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">E-Mail</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            {{ form.email.errors }} 
+            {{ form.email}}
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Şifre</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            {{ form.password1.errors }} 
+            {{ form.password1}}
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Şifre Tekrar</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            {{ form.password2.errors }} 
+            {{ form.password2}}
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Adres</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+            {{ form.adress.errors }} 
+            {{ form.adress}}
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Profil Resmi</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+            {{ form.profile_image.errors }} 
+            {{ form.profile_image}}
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="col-md-4 control-label">Çiftçi Misin?</label>
+        <div class="col-md-4 selectContainer">
+          <div class="input-group">
+            {{ form.is_farmer.errors }} 
+            {{ form.is_farmer}}
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-4">
+          <br />
+          <button type="submit" class="btn btn-warning">
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspGönder
+            <span class="glyphicon glyphicon-send"></span>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+          </button><br />
+        </div>
+      </div>
+
+      <p class="formsoru">Bir hesabınız var mı? <a href="{% url 'login' %}">Giriş Yap</a></p>
+    </fieldset>
+  </form>
+</div>
+<script src="{% static 'js/formlar.js' %}"></script>
+{% endblock content %}

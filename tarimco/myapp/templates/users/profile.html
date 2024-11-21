@@ -1,0 +1,135 @@
+{% extends 'users/base.html' %} {% block title %} Profil {% endblock %} {% block content %} {% load static %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+<div id="phone" role="main">
+  <p id="phone-speaker"></p>
+  <div id="phone-screen">
+    <div id="p_content">
+      <img
+        id="avatar"
+        width="100"
+        height="100"
+        src="{{ profile_user.profile_image.url }}"
+        alt="{{ profile_user.first_name }} {{ profile_user.last_name }}"
+      />
+      <svg
+        width="142px"
+        height="142px"
+        viewBox="0 0 24 24"
+        fill="none"
+        id="avatar-svg"
+        aria-hidden="true"
+      >
+        <defs>
+          <linearGradient id="AvatarGradient">
+            <stop offset="5%" stop-color="#AEDD9A" />
+            <stop offset="95%" stop-color="#44B973" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C14.8273 3 17.35 4.30367 19 6.34267"
+          stroke="url(#AvatarGradient)"
+          stroke-width="0.5"
+          stroke-linecap="round"
+        ></path>
+      </svg>
+      <p id="profile-user-name">
+        {{ profile_user.first_name }} {{ profile_user.last_name }}
+      </p>
+      <p id="profile-user-profession">
+        {% if profile_user.is_farmer %} Çiftçi {% else %} Üye{% endif %}
+      </p>
+      <div id="profile-user-general-values">
+        <p class="profile-pointer">
+          <span>{{ likes_count }}</span>
+          <span>Beğeniler</span>
+        </p>
+        <div class="profile-line"></div>
+        <p class="profile-pointer">
+          <span>{{ dislikes_count }}</span>
+          <span>Beğenmeyenler</span>
+        </p>
+        <div class="profile-line"></div>
+        <p class="profile-pointer">
+          <span>{{ profile_user.product_set.count }}</span>
+          <span>Ürün Sayısı</span>
+        </p>
+      </div>
+      {% if request.user.is_authenticated and request.user != profile_user %}
+      <div id="profile-group-btn">
+        <form method="post" action="{% url 'like_user' profile_user.id %}">
+          {% csrf_token %}
+          <button type="submit" style="border: 0px; background-color: white;">
+          <img src="../../../media/extra/thumbsup.png"alt="Button Image" style="width: 40px; height: 40px;">
+          </button>
+        </form>
+        <form method="post" action="{% url 'dislike_user' profile_user.id %}">
+          {% csrf_token %}
+          <button type="submit" style="border: 0px; background-color: white;">
+          <img src="../../../media/extra/thumbsdown.png"alt="Button Image" style="width: 40px; height: 40px;">
+          </button>
+        </form>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div id="profile-comments-section">
+  <h3>Yorumlar</h3>
+  {% for comment in comments %}
+  <div class="profile-comment">
+    <!-- Yorum bilgileri burada -->
+    <p><strong>{{ comment.user.username }}</strong>:</p>
+    <p>{{ comment.content }}</p>
+    <p>{{ comment.created_at }}</p>
+    {% if request.user.is_authenticated %}
+    <a href="#" class="profile-reply-link" data-comment-id="{{ comment.id }}">Yanıtla</a>
+    <div class="profile-reply-form" id="profile-reply-form-{{ comment.id }}" style="display: none">
+      <form method="post" action="{% url 'add_reply' profile_user.id comment.id %}">
+        {% csrf_token %}
+        <div class="profile-comment-form">
+          <textarea name="content" class="profile-reply-textarea" placeholder="Yanıtınızı buraya yazın..." required></textarea>
+          <button type="submit" class="profile-reply-submit-btn">
+            Yanıt Gönder
+          </button>
+        </div>
+      </form>
+    </div>
+    {% endif %}
+    <!-- Yanıtları göstermek için recursive yapı -->
+    {% for reply in comment.replies.all %}
+    <div class="profile-reply">
+      <!-- Yanıt bilgileri burada -->
+      <p><strong>{{ reply.user.username }}</strong>:</p>
+      <p>{{ reply.content }}</p>
+      <p>{{ reply.created_at }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %} {% if request.user.is_authenticated %}
+  <form method="post" action="{% url 'add_comment' profile_user.id %}" class="profile-comment-form">
+    {% csrf_token %}
+    <div>
+      <textarea name="content" class="profile-comment-textarea" placeholder="Yorumunuzu buraya yazın..."></textarea>
+      <button type="submit" class="profile-comment-submit-btn">
+        Yorum Yap
+      </button>
+    </div>
+  </form>
+  {% endif %}
+</div>
+
+<script>
+  document.querySelectorAll(".profile-reply-link").forEach((link) => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      const commentId = this.getAttribute("data-comment-id");
+      const replyForm = document.getElementById(
+        `profile-reply-form-${commentId}`
+      );
+      replyForm.style.display =
+        replyForm.style.display === "none" ? "block" : "none";
+    });
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'users/base.html' %}
+
+{% block title %}
+Çıkış Yap
+{% endblock title %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/logout.css' %}">
+
+<div class="container">
+    <div class="logout-box">
+        <h1>Görüşmek Üzere!</h1>
+        <p>Çok bekletme, seni özleyeceğiz.</p>
+        <div class="confetti"></div>
+        <a href="{% url 'login' %}" class="btn">Tekrar Giriş Yap</a>
+    </div>
+</div>
+
+<script src = "{% static 'js/logout.js' %}"> </script>
+{% endblock %}

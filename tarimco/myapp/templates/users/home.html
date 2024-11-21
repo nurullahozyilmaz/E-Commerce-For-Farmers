@@ -1,0 +1,77 @@
+{% extends 'users/base.html' %}
+
+{% block title %}
+    Ana Sayfa
+{% endblock title %}
+    
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<!-- Hero Section -->
+<header class="hero-section">
+    <div class="container text-center">
+        <h1>Sitemize Hoşgeldiniz</h1>
+        <!-- <p class="lead">Göz Atmak İçin Tıklayınız</p> -->
+        <a href="#basla" class="btn btn-primary btn-lg" id="dahası">Daha Fazla</a>
+    </div>
+</header>
+
+<!-- About Section -->
+<div class="w3-container" style="padding: 40px 16px" id="about">
+    <h3 class="w3-center" id="basla">NELER YAPIYORUZ ?</h3>
+    <div class="w3-row-padding w3-center" style="margin-top:64px">
+      <div class="w3-quarter">
+        <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
+        <p>TarımCO olarak, çiftçilere ve tarım sektörüne değer katan, yenilikçi ve sürdürülebilir tarım çözümleri sunmayı misyon edindik. </p>
+      </div>
+      <div class="w3-quarter">
+        <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
+        <p>Müşterilerimizin ihtiyaçlarına odaklanarak kaliteli hizmet sunmayı taahhüt ediyoruz.</p>
+      </div>
+      <div class="w3-quarter">
+        <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
+        <p>TarımCO olarak, sektördeki tecrübemiz ve uzman kadromuzla birçok başarıya imza attık. Çiftçilerimize sunduğumuz kaliteli ürün ve hizmetlerle sektörde öncü konumdayız.</p>
+      </div>
+      <div class="w3-quarter">
+        <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Team Section -->
+  <div class="w3-container" style="padding:40px 16px" id="team">
+    <h3 class="w3-center">BİZ KİMİZ ?</h3>
+    <!-- <p class="w3-center w3-large">Şirketimiz çalışanları hakkında...</p> -->
+    <div class="w3-row-padding w3-grayscale" style="display: flex; justify-content: center;">
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <img src="../../../media/team_section_images/img-nozy.png" alt="Nurullah Özyılmaz" style="width:100%">
+          <div class="w3-container">
+            <h3>Nurullah Özyılmaz</h3>
+            <p class="w3-opacity">Frontend Developer</p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <img src="../../../media/team_section_images/img-numan.png" alt="Numan Can Çakır" style="width:100%">
+          <div class="w3-container">
+            <h3>Numan Can Çakır</h3>
+            <p class="w3-opacity">Backend Developer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- Custom JS -->
+    <script src="{% static 'js/base.js' %}"></script>
+    
+
+{% endblock %}

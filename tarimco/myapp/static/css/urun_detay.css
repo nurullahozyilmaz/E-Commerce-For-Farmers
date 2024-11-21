@@ -1,0 +1,123 @@
+.detay_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 60%;
+    margin: 40px auto;
+    background: #fff;
+    border: 2px solid #e0e0e0; /* Hafif bir border eklendi */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Hafif bir gölge eklendi */
+    min-height: 500px;
+
+}
+
+.urun-gorsel {
+    flex: 1;
+    min-width: 300px;
+    max-width: 100%;
+    text-align: center;
+    border-right: 1px solid #e0e0e0; /* Sol tarafta bir border eklendi */
+    align-content: center;
+    object-fit:fill;
+    
+}
+
+.urun-gorsel img {
+    width: 100%; /* Resmin boyutu azaltıldı */
+    object-fit: contain;
+}
+
+.urun-bilgi {
+    flex: 2;
+    padding: 20px;
+    box-sizing: border-box;
+    min-width: 300px;
+}
+
+.urun-bilgi h2 {
+    font-size: 2rem;
+    margin-bottom: 20px; /* Başlık ile diğer içerikler arasındaki boşluk artırıldı */
+}
+
+.urun-bilgi p {
+    font-size: 1.2rem;
+    margin-bottom: 15px; /* Paragraflar arasındaki boşluk artırıldı */
+}
+
+.ureticinin-profili {
+    display: inline-block;
+    margin-top: 20px; /* Üreticinin profil linki ile diğer içerikler arasındaki boşluk artırıldı */
+    font-weight: bold;
+    color: #0ac629; /* Üreticinin profil linki rengi değiştirildi */
+    text-decoration: none;
+}
+
+.ureticinin-profili:hover {
+    text-decoration:solid;
+}
+
+.rezervasyon {
+    margin-top: 30px; /* Rezervasyon formu ile diğer içerikler arasındaki boşluk artırıldı */
+    padding: 20px;
+    background: #f9f9f9; /* Rezervasyon formu arka plan rengi değiştirildi */
+    border-radius: 0 10px 10px 0; /* Sağ alt köşenin border'ı eklendi */
+    border-left: 5px solid #3498db; /* Sol tarafta renkli bir border eklendi */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hafif bir gölge eklendi */
+}
+
+.rezervasyon form {
+    display: flex;
+    flex-direction: column;
+}
+
+.rezervasyon label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.rezervasyon input[type="number"] {
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 30%;
+    font-size: 1rem;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.rezervasyon .btn {
+    padding: 12px 20px; /* Buton boyutu artırıldı */
+    font-size: 1.2rem; /* Buton yazı boyutu artırıldı */
+    width: 30%;
+    color: #fff;
+    background: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.rezervasyon .btn:hover {
+    background: #2980b9;
+}
+
+.messages {
+    margin-bottom: 15px;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    background: #e0e0e0; /* Mesaj arka plan rengi değiştirildi */
+}
+
+.message.error {
+    color: #c0392b; /* Hata mesajı rengi değiştirildi */
+}
+
+.message.success {
+    color: #27ae60; /* Başarı mesajı rengi değiştirildi */
+}
+

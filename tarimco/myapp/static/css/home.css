@@ -1,0 +1,58 @@
+.btn-primary {
+    color: #fff;
+    background-color: #3b8070;
+    border: 2px solid #3b8070;
+    border-radius: 20px;
+}
+
+.btn-primary:hover {
+    background-color: #53aa5c;
+    border: 2px solid #5a9c60;
+    transition: all 0.5s ease;
+    border-radius: 0px;
+}
+
+.w3-quarter p {
+    text-align: justify;
+    margin-left: 2%;
+}
+
+@media (min-width: 993px) {
+    .w3-col.l3 {
+        justify-content: center;
+        width: 24.99999%;
+        display: flex;
+    }
+}
+
+.hero-section {
+    background-image: url('../../../media/base_page_image/base.jpeg');
+    background-size: cover;
+    color: white;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.hero-section .btn {
+    font-size: 1.25rem;
+    padding: 0.75rem 1.5rem;
+}
+
+.w3-row-padding, .w3-row-padding>.w3-half, .w3-row-padding>.w3-third, .w3-row-padding>.w3-twothird, .w3-row-padding>.w3-threequarter, .w3-row-padding>.w3-quarter, .w3-row-padding>.w3-col {
+    display: flex;
+    padding: 0 8px;
+    justify-content: center;
+}

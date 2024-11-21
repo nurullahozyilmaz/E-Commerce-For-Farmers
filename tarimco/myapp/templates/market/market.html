@@ -1,0 +1,41 @@
+<!-- market.html -->
+
+{% extends 'users/base.html' %}
+{% block title %}
+Market
+{% endblock title %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/market.css' %}">
+
+<div class="product_gallery">
+  <div class="market-searchbar">
+    <div class="search-box">
+      <button class="btn-search"><i class="fas fa-search"></i></button>
+      <input type="text" id="search-input" class="input-search" placeholder="Ürün Ara...">
+    </div>
+    <p class="search-text">Arama Yap</p>
+  </div>
+  <div class="content">
+    {% for product in products %}
+    <div class="product">
+      <a href="{% url 'urun_detay' urun_id=product.id %}">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        <h3>{{ product.name }}</h3>
+      </a>
+      <a href="{% url 'user_profile' user_id=product.farmer.id %}">{{ product.farmer }}</a>
+      <h6>{{ product.price }}₺</h6>
+      <p>{{product.created_at}}</p>
+      <p>{{product.quantity}} Kg</p>
+    </div>
+    {% if forloop.counter|divisibleby:4 and not forloop.last %}
+    <div class="clearfix"></div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<script src="{% static 'js/market.js' %}"></script>
+{% endblock content %}
+  

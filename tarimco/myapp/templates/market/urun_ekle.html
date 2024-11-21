@@ -1,0 +1,84 @@
+{% extends 'users/base.html' %}
+
+{% block title %}
+    Ürün Ekle
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/formlar.css' %}" />
+
+<div class="uyeol-container">
+    <form class="well form-horizontal" method="post" enctype="multipart/form-data" action="{% url 'urun_ekle' %}" id="contact_form">
+      {% csrf_token %}
+      <fieldset>
+        <legend><center><h2><b>Ürün Ekle</b></h2></center></legend>
+        <br />
+        
+        <div class="form-group">
+          <label class="col-md-4 control-label">Ürün Adı</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              {{form.name}}
+
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label class="col-md-4 control-label">Ürün Fiyatı</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              {{ form.price}}
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label class="col-md-4 control-label">Ürün Kilogramı</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              {{ form.quantity}}
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label class="col-md-4 control-label">Ürün Açıklaması</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-tasks"></i></span>
+              <p >{{ form.description}}</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label class="col-md-4 control-label">Ürün Görseli</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-paperclip"></i></span>
+              {{ form.image}}
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-4">
+            <br />
+            <button type="submit" class="btn btn-warning">
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspGönder
+              <span class="glyphicon glyphicon-send"></span>
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            </button><br />
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
+{% endblock %}

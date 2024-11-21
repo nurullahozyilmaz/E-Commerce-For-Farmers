@@ -1,0 +1,75 @@
+{% extends "users/base.html" %}
+
+{% block title %}
+İletişim
+{% endblock title %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/formlar.css' %}">
+
+<div class="iletisim-container">
+    <form class="well form-horizontal" action="{% url 'iletisim' %}" method="post" id="contact_form">
+        {% csrf_token %}
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>
+                <center>
+                    <h2><b>Bizimle İletişime Geç!</b></h2>
+                </center>
+            </legend><br>
+            
+            <!-- Ad input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label">Ad</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="i_name" class="form-control" type="text"
+                            value="{% if user.is_authenticated %}{{ user.first_name }} {{user.last_name}}{% endif %}" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- E-Mail input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label">E-Mail</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        <input name="i_email" class="form-control" type="email"
+                            value="{% if user.is_authenticated %}{{ user.email }}{% endif %}" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mesaj input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label">Mesaj</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                        <textarea class="form-control" name="i_message" required rows="5">{{ form.i_message.value }}</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-warning">Gönder <span class="glyphicon glyphicon-send"></span></button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+    {% if form.is_valid %}
+        <div class="alert alert-success" role="alert" id="success_message">Success! Thanks for contacting us, we will get back to you shortly.</div>
+    {% endif %}
+</div>
+<script src="{% static 'js/formlar.js' %}"></script>
+{% endblock content %}

@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="nav-logo">
+          <a href="{% url 'home' %}">TarimCO</a>
+        </div>
+        <div class="nav-items">
+          <ul>
+            <li><a href="{% url 'home' %}"> Anasayfa </a></li>
+            <li><a href="{% url 'market' %}"> Market </a></li>
+            {% if user.is_farmer or user.is_superuser %}
+            <li><a href="{% url 'urun_ekle' %}"> Ürün Ekle </a></li>
+            {% endif %}
+            <li><a href="{% url 'iletisim' %}"> İletişim </a></li>
+            {% if user.is_authenticated %}
+            <li class="profile-menu">
+              <a href="{% url 'user_profile' user_id=user.id %}"> <img src="{{ user.profile_image.url }}" alt="Profil Resmi" class="profile-picture" /></a>
+              <div class="dropdown-content">
+                <a href="{% url 'logout' %}">Çıkış Yap</a>
+              </div>
+            </li>
+            {% else %}
+            <li><a href="{% url 'register' %}">Üye Ol</a></li>
+            <li><a href="{% url 'login' %}">Giriş Yap</a></li>
+            {% endif %}
+          </ul>
+        </div>
+    </header>
+
+    <main>{% block content %} {% endblock %}</main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>TarimCo</h4>
+            <ul>
+              <li><a href="{% url 'home' %}">Anasayfa</a></li>
+              <li><a href="#basla">Hakkımızda</a></li>
+              <li><a href="#">Hizmetlerimiz</a></li>
+              <li><a href="{% url 'iletisim' %}">İletişim</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Destek</h4>
+            <ul>
+              <li><a href="{% url 'sss' %}">SSS</a></li>
+              <li><a href="{% url 'politika' %}">Politikalar</a></li>
+              <li><a href="{% url 'sozlesme' %}">Sözleşmeler</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Online Alışveriş</h4>
+            <ul>
+              <li><a href="{% url 'market' %}">Market</a></li>
+              {% if user.is_farmer or user.is_superuser %}
+              <li><a href="{% url 'urun_ekle' %}">Ürün Ekle</a></li>        
+              {% endif %}
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Bizi Takip Edin!</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

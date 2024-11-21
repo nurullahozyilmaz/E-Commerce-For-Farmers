@@ -1,0 +1,47 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css');
+
+.iletisim-baslik {
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}
+
+.form-group textarea {
+    resize: none;
+}
+
+.iletisim-container {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.girisyap-container {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.girisyap-container .well {
+    margin-bottom: 4.4%;
+    margin-top: 4.4%;
+}
+.iletisim-container .well {
+    margin-bottom: 4.4%;
+    margin-top: 4.4%;
+}
+.uyeol-container .well {
+    margin-bottom: 4.4%;
+    margin-top: 4.4%;
+}
+
+.uyeol-container {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.formsoru {
+    font-size: 20px;
+}
+
+input[type=file] {
+    margin-top: 1.5%;
+}

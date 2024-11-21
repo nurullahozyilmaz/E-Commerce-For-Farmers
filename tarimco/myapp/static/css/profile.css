@@ -1,0 +1,276 @@
+
+
+@keyframes show {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.btn {
+    color: white;
+    height: 32px;
+    width: auto;
+    padding: 10px 20px;
+    margin: 0;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #3b8070;
+    border-radius: 15px;
+}
+
+.btn:hover {
+    background: #378E5A;
+    color: white;
+    transition: all 0.5s ease;
+    border-radius: 0px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+#phone {
+    border: 2px solid #ccc;
+    width: 30%;
+    height: 520px;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 10px;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+#phone-screen {
+    border: 1px solid #ccc;
+    width: 90%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 10px;
+    animation: show 1s;
+}
+
+#p_content {
+    position: relative;
+    height: 95%;
+    width: auto;
+    padding: 25px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#avatar {
+    margin: 20px 0 0 0;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#avatar-svg {
+    position: absolute;
+    top: 24px;
+    transform: rotate(150deg);
+}
+
+#profile-user-name {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 30px 0 0 0;
+    color: #333;
+}
+
+#profile-user-profession {
+    font-size: 18px;
+    font-weight: 300;
+    margin: 3px 0 0 0;
+    color: #666;
+}
+
+#profile-user-general-values {
+    margin: 30px 0 0 0;
+    display: flex;
+    width: 350px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#profile-user-general-values p {
+    width: 30%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#profile-user-general-values p span:nth-child(1) {
+    font-size: 22px;
+    font-weight: 600;
+    color: #378E5A;
+}
+
+#profile-user-general-values p span:nth-child(2) {
+    font-size: 15px;
+    font-weight: 300;
+    margin: 3px 0 0 0;
+    color: #888;
+}
+
+.profile-line {
+    width: 1px;
+    height: 60%;
+    margin: 0 20px;
+    background-color: #ccc;
+}
+
+#profile-group-btn {
+    width: 50%;
+    margin: 30px 0 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: none;
+    
+}
+
+#follow-btn {
+    margin-right: 10px;
+}
+
+#message-btn {
+    margin-left: 10px;
+}
+
+#reactions {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reaction_button {
+    margin: 0 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.reaction_button:hover {
+    background-color: #0056b3;
+}
+
+#reactions span {
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+#profile-comments-section {
+    width: 60%;
+    justify-content: center;
+    height: auto; /* Toplam yüksekliği ayarla, footerın yüksekliğini çıkar */
+    overflow-y: auto; /* Dikey kaydırma eklenmiş */
+    border-radius: 8px;
+    margin: auto;
+}
+
+.profile-comment {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-comment p {
+    margin: 0 0 10px 0;
+}
+
+.profile-comment strong {
+    color: #333;
+}
+
+.profile-reply {
+    margin-left: 40px; /* Ana yorumdan daha içeride */
+    padding-left: 20px; /* Görsel bir ayrım için padding ekleyelim */
+    border-left: 2px solid #ccc; /* Sol tarafta bir çizgi ile ayrılsın */
+}
+
+.profile-reply-link {
+    margin-left: 20px;
+    color: #3b8070;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.profile-reply-link:hover {
+    color: #378E5A;
+}
+
+/* Yanıt Formu */
+.profile-reply-form {
+    margin-left: 20px;
+}
+
+.profile-reply-form form {
+    margin-top: 10px;
+}
+
+.profile-reply-form form button {
+    margin-top: 10px;
+    background-color: #3b8070;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.profile-reply-form form button:hover {
+    background-color: #378E5A;
+}
+
+/* Yorum Formu */
+.profile-comment-form {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-comment-form textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+.profile-comment-form button {
+    background-color: #3b8070;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.profile-comment-form button:hover {
+    background-color: #378E5A;
+}

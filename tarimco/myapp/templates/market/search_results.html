@@ -1,0 +1,27 @@
+{% load static %}
+
+<link rel="stylesheet" href=" {% static 'css/market.css' %} ">
+<link rel="stylesheet" href=" {% static 'css/base.css' %} ">
+
+
+<div class="container">
+  <h2>Arama Sonuçları: "{{ query }}"</h2> <br> <!-- Arama sorgusunu gösteriyoruz -->
+
+  {% if results %}
+      {% for product in results %}
+      <div class="product">
+      <a href="{% url 'urun_detay' urun_id=product.id %}">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        <h3>{{ product.name }}</h3>
+      </a>
+      <a href="{% url 'user_profile' user_id=product.farmer.id %}">{{ product.farmer }}</a>
+      <h6>{{ product.price }}₺</h6>
+      <p>{{ product.created_at }}</p>
+      <p>{{ product.quantity }} Kg</p>
+    </div>
+      {% endfor %}
+  {% else %}
+    <p>Arama kriterlerinize uygun sonuç bulunamadı.</p>  <!-- Sonuç bulunamadığında gösterilecek mesaj -->
+  {% endif %}
+</div>
+<script src="{% static 'js/market.js' %}"></script>

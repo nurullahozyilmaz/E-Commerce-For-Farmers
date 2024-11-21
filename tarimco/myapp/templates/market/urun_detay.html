@@ -1,0 +1,50 @@
+{% extends 'users/base.html' %}
+{% block title %}
+Ürün Detayı - {{ urun.name }}
+{% endblock title %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/urun_detay.css' %}">
+<div class="detay_container">
+    <div class="urun-gorsel">
+        <img src="{{ urun.image.url }}" alt="{{ urun.name }}">
+    </div>
+    <div class="urun-bilgi">
+        <h2>{{ urun.name }}</h2>
+        <p><b>Fiyat:</b> ₺{{ urun.price }}</p>
+        <p><b>Stok:</b> {{ urun.quantity }} kg</p>
+        <p><b>Oluşturulma Tarihi:</b> {{ urun.created_at|date:"d M Y" }}</p>
+        <p><b>Açıklama:</b> {{ urun.description }}</p>
+        <b>Satıcı:</b> <a class="ureticinin-profili" href="{% url 'user_profile' user_id=urun.farmer.id %}"> {{ urun.farmer }}</a>
+        <!-- Rezervasyon Formu -->
+        <div class="rezervasyon">
+            <!-- Hata Mesajları -->
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        <div class="message {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <form id="reservation-form" action="{% url 'urun_detay' urun.id %}" method="post">
+                {% csrf_token %}
+                <label for="reserve_amount">Rezerve Etmek İstediğiniz Miktar (kg):</label>
+                <input type="number" id="reserve_amount" name="reserve_amount" min="1" max="{{ urun.quantity }}" required>
+                <button type="submit" class="btn">Rezerve Et</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    // Mesajları otomatik olarak kaldıran JavaScript kodu
+    window.onload = function() {
+        setTimeout(function() {
+            var messages = document.getElementsByClassName('message');
+            for (var i = 0; i < messages.length; i++) {
+                messages[i].style.display = 'none';
+            }
+        }, 5000); // 5 saniye sonra mesajları kaldır
+    }
+</script>
+{% endblock content %}

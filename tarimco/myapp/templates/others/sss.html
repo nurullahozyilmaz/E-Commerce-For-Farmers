@@ -1,0 +1,91 @@
+{% extends 'users/base.html' %}
+
+{% block title %}
+    S.S.S.
+{% endblock title %}
+    
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/sss.css' %}">
+
+<h1>Sıkça Sorulan Sorular</h1>
+
+<div class="accordion">
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+      Siteniz hangi hizmetleri sunuyor?
+    </div>
+    <div class="accordion-item-body" style="max-height: auto;">
+      <div class="accordion-item-body-content">
+      Sitemiz, tarım ürünleri, ekipmanları ve tarımsal teknolojiler hakkında bilgi sağlar. Ayrıca tarım haberleri, eğitim materyalleri ve çiftçi destek programları hakkında güncel bilgiler sunar.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+      Hangi ürünler satılabilir?
+    </div>
+    <div class="accordion-item-body">
+      <div class="accordion-item-body-content">
+        Çeşitli meyveler, sebzeler gibi geniş yelpazede ürünler sunuyoruz.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+      Siparişimi nasıl takip edebilirim?
+    </div>
+    <div class="accordion-item-body" style="max-height: auto;">
+      <div class="accordion-item-body-content">
+     Siparişinizi online mağazamızdaki "Sipariş Takibi" bölümünden takip edebilirsiniz.
+      </div>
+    </div>
+  </div>
+  <!-- MADDELİ ÖRNEĞİ 
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+      Örnek Yazı
+    </div>
+    <div class="accordion-item-body">
+      <div class="accordion-item-body-content">
+        <ul style="padding-left: 1rem;">
+          <li>HTML, CSS, JavaScript</li>
+          <li>Frameworks (CSS and JavaScript frameworks)</li>
+          <li>Responsive Design</li>
+          <li>Version Control/Git</li>
+          <li>Testing/Debugging</li>
+          <li>Browser Developer Tools</li>
+          <li>Web Performance</li>
+          <li>SEO (Search Engine Optimization)</li>
+          <li>CSS Preprocessing</li>
+          <li>Command Line</li>
+          <li>CMS (Content Management System)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  -->
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+      İletişim bilgileriniz nelerdir?
+    </div>
+    <div class="accordion-item-body">
+      <div class="accordion-item-body-content">
+        Bize telefon, e-posta veya sosyal medya hesaplarımız üzerinden ulaşabilirsiniz. İletişim sayfamızdaki formu doldurarak da bizimle iletişime geçebilirsiniz.
+    </div>
+  </div>
+  <div class="accordion-item">
+    <div class="accordion-item-header">
+      Danışmanlık hizmetleriniz var mı?
+    </div>
+    <div class="accordion-item-body">
+      <div class="accordion-item-body-content">
+       Evet, uzmanlarımız tarafından verilen tarım danışmanlık hizmetlerimiz mevcuttur.
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+<script src="{% static 'js/sss.js' %}"></script>
+{% endblock content %}
